@@ -59,8 +59,9 @@ BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 TARGET_KERNEL_VERSION := 4.9
 # Kernel - Build
 TARGET_KERNEL_CLANG_VERSION := r416183b
-TARGET_KERNEL_CLANG_PATH := $(abspath .)/prebuilts/clang/kernel/$(HOST_PREBUILT_TAG)/clang-$(TARGET_KERNEL_CLANG_VERSION)
+TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-r416183b
 TARGET_KERNEL_LLVM_BINUTILS := false
+TARGET_KERNEL_ADDITIONAL_FLAGS := HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
 
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
